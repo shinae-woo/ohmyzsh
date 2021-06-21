@@ -42,12 +42,14 @@ function update_current_git_vars() {
     GIT_UNTRACKED=$__CURRENT_GIT_STATUS[7]
     GIT_STASHED=$__CURRENT_GIT_STATUS[8]
     GIT_CLEAN=$__CURRENT_GIT_STATUS[9]
+
+    GIT_BRANCH_SIMPLE=${${GIT_BRANCH##*/}:0:13}
 }
 
 git_super_status() {
     precmd_update_git_vars
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
-      STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH%{${reset_color}%}"
+      STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH_SIMPLE%{${reset_color}%}"
       if [ "$GIT_BEHIND" -ne "0" ]; then
           STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_BEHIND$GIT_BEHIND%{${reset_color}%}"
       fi
