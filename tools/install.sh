@@ -41,8 +41,8 @@ set -e
 custom_zsh=${ZSH:+yes}
 
 # Default settings
-ZSH=${ZSH:-~/.oh-my-zsh}
-REPO=${REPO:-ohmyzsh/ohmyzsh}
+ZSH=${ZSH:-~/src/oh-my-zsh}
+REPO=${REPO:-shinae-woo/ohmyzsh}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
